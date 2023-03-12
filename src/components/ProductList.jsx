@@ -1,54 +1,49 @@
-export default function ProductList() {
-    return (
-        <div className="row">
-            <div className="image mt-4 col-sm-6 col-lg-3">
-                <a href="" className="image__link">
-                    <img src="images/img1.jpg" alt="" className="image__style" />
-                </a>
-                <p className="image_title">Place 1</p>
-            </div>
-            <div className="image mt-4 col-sm-6 col-lg-3">
-                <a href="" className="image__link">
-                    <img src="images/img2.jpg" alt="" className="image__style" />
-                </a>
-                <p className="image_title">Place 2</p>
-            </div>
-            <div className="image mt-4 col-sm-6 col-lg-3">
-                <a href="" className="image__link">
-                    <img src="images/img3.jpg" alt="" className="image__style" />
-                </a>
-                <p className="image_title">Place 3</p>
-            </div>
-            <div className="image mt-4 col-sm-6 col-lg-3">
-                <a href="" className="image__link">
-                    <img src="images/img4.jpg" alt="" className="image__style" />
-                </a>
-                <p className="image_title">Place 4</p>
-            </div>
-            <div className="image mt-4 col-sm-6 col-lg-3">
-                <a href="" className="image__link">
-                    <img src="images/img5.jpg" alt="" className="image__style" />
-                </a>
-                <p className="image_title">Place 5</p>
-            </div>
-            <div className="image mt-4 col-sm-6 col-lg-3">
-                <a href="" className="image__link">
-                    <img src="images/img6.jpg" alt="" className="image__style" />
-                </a>
-                <p className="image_title">Place 6</p>
-            </div>
-            <div className="image mt-4 col-sm-6 col-lg-3">
-                <a href="" className="image__link">
-                    <img src="images/img7.jpg" alt="" className="image__style" />
-                </a>
-                <p className="image_title">Place 7</p>
-            </div>
-            <div className="image mt-4 col-sm-6 col-lg-3">
-                <a href="" className="image__link">
-                    <img src="images/img8.jpg" alt="" className="image__style" />
-                </a>
-                <p className="image_title">Place 8</p>
-            </div>
+import { Row, Col } from "antd";
+import ProductItem from "./ProductItem";
+
+export default function ProductList({ products }) {
+  return (
+    <div className="row">
+      <div className="container">
+        <h1 className="text-center">IMAGES</h1>
+        <hr className="divider--dark" />
+      </div>
+
+      <Row gutter={[32, 32]}>
+        {products.map((product) => (
+          <Col
+            sm={{ span: 12 }}
+            lg={{ span: 8 }}
+            xl={{ span: 6 }}
+            xxl={{ span: 4 }}
+          >
+            {" "}
+            <ProductItem key={product.id} product={product} />
+          </Col>
+        ))}
+      </Row>
+
+      <article className="description__layout ">
+        <div className="container d-flex flex-column align-items-center">
+          <h1>DESCRIPTIONS</h1>
+          <hr className="divider--light" />
+          <p className="text-justify description__content ">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+            laborum corrupti ut iure aliquam. Quod, perferendis. Libero tempore
+            iste, animi sint numquam illum quasi laboriosam unde pariatur
+            quidem! Suscipit consequatur nihil dolor impedit temporibus ad cum,
+            voluptatum odit ratione ullam eligendi amet beatae aliquid eaque
+            nesciunt optio nobis ducimus itaque. Voluptatibus aspernatur
+            assumenda quod quo error consequuntur, vero iusto reprehenderit
+            repellat maiores, sapiente dolores voluptates minima. Alias dolore
+            assumenda fuga quae repellat voluptatum quo, saepe exercitationem
+            perspiciatis reiciendis modi tempora. Recusandae explicabo iusto
+            corporis nam numquam dignissimos, necessitatibus, iure non culpa
+            repellat repudiandae temporibus! Saepe excepturi tempore iusto eos
+            sit!
+          </p>
         </div>
-    );
+      </article>
+    </div>
+  );
 }
